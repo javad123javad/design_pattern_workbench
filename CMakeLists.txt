@@ -5,6 +5,9 @@ project(DP_WB LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_COMPILE_FEATURES "-O2 -fno-exceptions -fno-rtti -Wall -Werror -pedantic-errors")
+
+find_package(Microsoft.GSL CONFIG)
+
 add_executable(DP_WB main.cpp
     person.cpp person.h
     filter.cpp filter.h
@@ -22,3 +25,5 @@ add_executable(Car
     ilogger.cpp ilogger.h
     di.hpp)
 target_link_libraries(Car ${Boost_LIBRARIES})
+
+add_executable(Creational creational.h creational.cpp)
