@@ -27,3 +27,9 @@ add_executable(Car
 target_link_libraries(Car ${Boost_LIBRARIES})
 
 add_executable(Creational creational.h creational.cpp)
+add_executable(Builder builder.h builder.cpp)
+add_executable(Composite-Builder composite_builder.h composite_builder.cpp)
+add_executable(My-Composite-Builder my_composite_builder/my_composite_builder.h my_composite_builder/my_composite_builder.cpp
+    my_composite_builder/personbuilderbase.h my_composite_builder/personbuilderbase.cpp
+    my_composite_builder/person.h my_composite_builder/person.cpp)
+add_executable(Factory factory.h factory.cpp)
