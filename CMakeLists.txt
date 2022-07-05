@@ -5,6 +5,7 @@ project(DP_WB LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_COMPILE_FEATURES "-O2 -fno-exceptions -fno-rtti -Wall -Werror -pedantic-errors")
+find_package(Boost 1.70.0 COMPONENTS system filesystem serialization REQUIRED)
 
 find_package(Microsoft.GSL CONFIG)
 
@@ -33,3 +34,5 @@ add_executable(My-Composite-Builder my_composite_builder/my_composite_builder.h 
     my_composite_builder/personbuilderbase.h my_composite_builder/personbuilderbase.cpp
     my_composite_builder/person.h my_composite_builder/person.cpp)
 add_executable(Factory factory.h factory.cpp)
+add_executable(Prototype prototype.cpp prototype.h)
+target_link_libraries(Prototype LINK_PUBLIC ${Boost_LIBRARIES})
