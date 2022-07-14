@@ -36,3 +36,5 @@ add_executable(My-Composite-Builder my_composite_builder/my_composite_builder.h 
 add_executable(Factory factory.h factory.cpp)
 add_executable(Prototype prototype.cpp prototype.h)
 target_link_libraries(Prototype LINK_PUBLIC ${Boost_LIBRARIES})
+
+add_executable(Singleton singleton.cpp singleton.h)
