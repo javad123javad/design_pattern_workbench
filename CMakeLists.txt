@@ -40,3 +40,5 @@ target_link_libraries(Prototype LINK_PUBLIC ${Boost_LIBRARIES})
 add_executable(Singleton singleton.cpp singleton.h)
 add_executable(Adaptor adaptor.cpp adaptor.h)
 add_executable(PImpl pimpl.cpp pimpl.h)
+
+add_executable(Composite Composite/composite.cpp Composite/composite.h)
