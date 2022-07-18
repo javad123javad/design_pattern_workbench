@@ -37,6 +37,7 @@ private:
  * 2. We respect the Open-Closed Principle. (i.e. Adding
  * features to the classes without modifying the original
  * types)
+ * @note This is a Dynamic Decorator
  */
 struct ColoredShape: Shape
 {
