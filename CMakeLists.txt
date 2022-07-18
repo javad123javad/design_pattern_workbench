@@ -42,3 +42,4 @@ add_executable(Adaptor adaptor.cpp adaptor.h)
 add_executable(PImpl pimpl.cpp pimpl.h)
 
 add_executable(Composite Composite/composite.cpp Composite/composite.h)
+add_executable(Decorator Decorator/decorator.cpp Decorator/decorator.h)
