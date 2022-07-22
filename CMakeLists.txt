@@ -5,6 +5,7 @@ project(DP_WB LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_COMPILE_FEATURES "-O2 -fno-exceptions -fno-rtti -Wall -Werror -pedantic-errors")
+#add_compile_definitions(_GLIBCXX_USE_CXX11_ABI=0)
 find_package(Boost 1.70.0 COMPONENTS system filesystem serialization REQUIRED)
 
 find_package(Microsoft.GSL CONFIG)

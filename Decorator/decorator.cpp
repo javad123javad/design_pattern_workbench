@@ -7,23 +7,36 @@ Decorator::Decorator()
 Shape::~Shape(){
 }
 
-void ColoredShape::str() const
+string ColoredShape::str() const
 {
-    cout<<"A Colored Shape with"\
+    ostringstream oss;
+    oss <<"A Colored Shape with"\
        "color:"<< this->color<<endl;
+    return oss.str();
 }
 
-void Circle::str() const
+string Circle::str() const
 {
-    cout<<"A circle with radius:"\
+    ostringstream oss;
+    oss <<"A circle with radius:"\
        << this->radius<<endl;
+    return oss.str();
 }
 
+template <typename T> string TransparentShape<T>::str() const
+{
+    ostringstream oss;
+    oss << T::str() << "has trans degree:"
+        << trans_degree;
+        return oss.str();
+}
 int main(void)
 {
     Circle circle{0.5f};
     ColoredShape cs{circle,"red"};
-    cs.shape.str();
+    TransparentShape<Circle> tshape{0.1f};
+    cout<<cs.shape.str()<<std::endl;
+    cout <<tshape.str()<<std::endl;
 
 
     return 0;

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class Decorator
@@ -14,7 +15,7 @@ public:
 struct Shape
 {
     virtual ~Shape();
-    virtual void str() const = 0;
+    virtual string str() const = 0;
 
 };
 
@@ -22,7 +23,7 @@ struct Circle: Shape
 {
     Circle(const float radius):
         radius{radius}{}
-    void str() const override;
+    string str() const override;
 private:
     float radius;
 
@@ -31,7 +32,7 @@ private:
 /**
  * @brief The ColoredShape struct. It is a composite
  * class which allows us to add various attribiutes to
- * another class without any direct anheritance.
+ * another class without any direct inheritance.
  * This mechanism has several benefits:
  * 1. We respect the Single Responsibility Principle
  * 2. We respect the Open-Closed Principle. (i.e. Adding
@@ -52,9 +53,22 @@ struct ColoredShape: Shape
 
     }
 
-    void str() const override;
+    string str() const override;
 };
 
+template <typename T> struct TransparentShape: T
+{
+    static_assert (is_base_of<Shape, T>::value,
+                   "Template argument must be a Shape");
+    float trans_degree;
+
+    string str() const override;
+
+
+    TransparentShape(const float trans):
+        T{0.1},
+        trans_degree{trans}{}
+};
 
 
 #endif // DECORATOR_H
