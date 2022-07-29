@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string>
 #include <boost/bimap.hpp>
+#include <boost/flyweight.hpp>
 #include <iostream>
 typedef uint32_t key;
 using std::string;
@@ -61,4 +62,20 @@ protected:
 };
 boost::bimap<key, std::string> User::names;
 key User::seed;
+
+struct User2
+{
+
+    User2(const string& fname, const string& lname):
+        first_name{fname}, last_name{lname}{}
+
+    string  get_fname() const
+    {
+        return   first_name.get();
+    }
+
+protected:
+    boost::flyweight<string> first_name, last_name;
+};
+
 #endif // FLYWEIGHT_H
