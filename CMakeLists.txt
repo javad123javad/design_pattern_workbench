@@ -48,3 +48,4 @@ add_executable(Flyweight FlyWeight/flyweight.cpp FlyWeight/flyweight.h)
 target_link_libraries(Flyweight LINK_PUBLIC ${Boost_LIBRARIES} pthread) # required to support Boost
 
 add_executable(Proxy Proxy/proxy.cpp Proxy/proxy.h)
+add_executable(COR COR/cor.cpp COR/cor.h)
